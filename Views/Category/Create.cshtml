@@ -1,0 +1,34 @@
+﻿@model CategoryModel
+@{
+    ViewData["Title"] = "Kategori Oluştur";
+}
+
+<div class="row mb-4">
+    <div class="col">
+        <h3 class="display-4 border-bottom">@ViewData["Title"]</h3>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-4">
+        <div class="text-danger small text-center" asp-validation-summary="ModelOnly"></div>
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="Name" class="font-weight-bold"></label>
+                <input asp-for="Name" class="form-control" placeholder="@NameData.GetCompanyName()" />
+                <span asp-validation-for="Name" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" rows="2" class="form-control" placeholder="@TextData.GetSentence()"></textarea>
+                <span asp-validation-for="Description" class="text-danger small"></span>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-plus mr-2"></i>Oluştur</button>
+                <a class="btn btn-secondary btn-sm" asp-action="Index"><i class="fa fa-arrow-left mr-2"></i>Listeye Dön</a>
+            </div>
+        </form>
+    </div>
+</div>

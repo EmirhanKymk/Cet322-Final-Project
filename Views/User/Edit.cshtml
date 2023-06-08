@@ -1,0 +1,56 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Kullanıcı Güncelle";
+}
+
+<div class="row mb-4">
+    <div class="col">
+        <h3 class="display-4 border-bottom">@ViewData["Title"]</h3>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-4">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="FullName" class="font-weight-bold">Ad Soyad</label>
+                <input asp-for="FullName" class="form-control" placeholder="@NameData.GetFullName()" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Username" class="font-weight-bold">Kullanıcı Adı</label>
+                <input asp-for="Username" class="form-control" asp-for="Fullname" placeholder="@NameData.GetTitleName()" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="font-weight-bold">E-Posta Adresi</label>
+                <input asp-for="Email" class="form-control" placeholder="@NetworkData.GetEmail()" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="font-weight-bold">Şifre</label>
+                <input type="password" asp-for="Password" class="form-control" placeholder="@TextData.GetNumeric(6)" />
+            </div>
+
+           @* <div class="mb-3">
+                <label asp-for="RePassword" class="font-weight-bold">Şifre(Tekrar)</label>
+                <input type="password" asp-for="RePassword" class="form-control" placeholder="@TextData.GetNumeric(6)" />
+            </div>*@
+
+            <div class="form-check">
+                <input asp-for="IsActive" class="form-check-input" id="isactive" />
+                <label class="form-check-label" asp-for="IsActive">Aktif</label>
+            </div>
+
+            <div class="form-check">
+                <input asp-for="IsAdmin" class="form-check-input" id="isadmin" />
+                <label class="form-check-label" asp-for="IsAdmin">Yönetici</label>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save mr-2"></i>Kaydet</button>
+                <a class="btn btn-secondary btn-sm" asp-action="Index"><i class="fa fa-arrow-left mr-2"></i>Listeye Dön</a>
+            </div>
+        </form>
+	</div>
+</div>

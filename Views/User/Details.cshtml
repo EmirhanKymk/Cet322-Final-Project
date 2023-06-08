@@ -1,0 +1,52 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Kullanıcı Detay";
+}
+
+<div class="row mb-4">
+    <div class="col">
+        <h3 class="display-4 border-bottom">@ViewData["Title"]</h3>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col">
+        <dl class="row">
+            <dt class="col-4">@Html.DisplayNameFor(m => m.FullName)</dt>
+            <dd class="col-8">@Model.FullName</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(m => m.Username)</dt>
+            <dd class="col-8">@Model.Username</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(m => m.Email)</dt>
+            <dd class="col-8">@Model.Email</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(m => m.IsActive)</dt>
+            <dd class="col-8">
+                <i class="fa fa-@(Model.IsActive ? "check text-success" : "times text-danger" )"></i></dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(m => m.IsAdmin)</dt>
+            <dd class="col-8">
+                <i class="fa fa-@(Model.IsAdmin ? "check text-success" : "times text-danger" )"></i></dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(m => m.CreatedUser)</dt>
+            <dd class="col-8">@Model.CreatedUser</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(m => m.CreatedAt)</dt>
+            <dd class="col-8">@Model.CreatedAt</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(m => m.ModifiedUser)</dt>
+            <dd class="col-8">@Model.ModifiedUser</dd>
+            
+            <dt class="col-4">@Html.DisplayNameFor(m => m.ModifiedAt)</dt>
+            <dd class="col-8">@Model.ModifiedAt</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col">
+        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@Model.Id"><i class="fa fa-edit mr-2"></i>Düzenle</a>
+        <a class="btn btn-secondary btn-sm" asp-action="Index"><i class="fa fa-arrow-left mr-2"></i>Listeye Dön!</a>
+    </div>
+</div>

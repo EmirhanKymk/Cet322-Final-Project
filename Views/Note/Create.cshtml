@@ -1,0 +1,49 @@
+﻿@model NoteModel
+@{
+    ViewData["Title"] = "Yazı Oluştur";
+}
+
+<div class="row mb-4">
+    <div class="col">
+        <h3 class="display-4 border-bottom">@ViewData["Title"]</h3>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-4">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="CategoryId" class="font-weight-bold">Kategori</label>
+                <select asp-for="CategoryId" class="form-control" 
+                        asp-items="@((List<SelectListItem>)ViewData["categories"])">
+                    <option selected>Seçiniz</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Title" class="font-weight-bold"></label>
+                <input asp-for="Title" class="form-control"  placeholder="@TextData.GetSentence()" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Summary" class="form-label"></label>
+                <textarea asp-for="Summary" rows="2" class="form-control" placeholder="@TextData.GetSentences(2)"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Detail" class="form-label"></label>
+                <textarea asp-for="Detail" rows="6" class="form-control" placeholder="@TextData.GetSentences(6)"></textarea>
+            </div>
+
+            <div class="form-check">
+                <input asp-for="IsDraft" class="form-check-input" />
+                <label class="form-check-label" asp-for="IsDraft"></label>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-plus mr-2"></i>Oluştur</button>
+                <a class="btn btn-secondary btn-sm" asp-action="Index"><i class="fa fa-arrow-left mr-2"></i>Listeye Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
